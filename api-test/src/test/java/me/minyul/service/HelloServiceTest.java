@@ -16,7 +16,7 @@ class HelloServiceTest {
     @Autowired
     private HelloService helloService;
 
-    @DisplayName("꿀꿀")
+    @DisplayName("Say Hello")
     @Test
     void sayHello() {
         String hello = helloService.hello();

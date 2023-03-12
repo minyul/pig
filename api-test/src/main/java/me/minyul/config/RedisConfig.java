@@ -3,6 +3,9 @@ package me.minyul.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisURI;
+import io.lettuce.core.api.async.RedisAsyncCommands;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,5 +53,13 @@ public class RedisConfig {
         redisStandaloneConfiguration.setHostName(redisHost);
         redisStandaloneConfiguration.setPort(redisPort);
         return new LettuceConnectionFactory(redisStandaloneConfiguration);
+    }
+
+    @Bean
+    public RedisAsyncCommands<String, Object> redisAsyncCommands(ObjectMapper objectMapper) {
+        RedisURI redisURI = RedisURI.create(redisHost, redisPort);
+        RedisClient redisClient = RedisClient.create(redisURI);
+        return redisClient.connect(new StringObjectRedisCodec(objectMapper))
+                .async();
     }
 }

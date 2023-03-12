@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Getter
 @NoArgsConstructor
 public class NewsDto {
@@ -14,14 +12,14 @@ public class NewsDto {
     private String topic;
     private String title;
     private String media;
-    private LocalDateTime updateTime;
+    private Long updateTime;
 
     @Builder
     public NewsDto(
             String topic,
             String title,
             String media,
-            LocalDateTime updateTime
+            Long updateTime
     ) {
         this.topic = topic;
         this.title = title;

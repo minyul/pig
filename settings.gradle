@@ -1,3 +1,4 @@
 rootProject.name = 'pig'
 include 'api-test'
+include 'batch-test'
 

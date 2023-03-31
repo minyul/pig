@@ -1,5 +1,8 @@
 package me.minyul.service;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,6 +32,17 @@ class HelloServiceTest {
         @Bean
         public HelloService helloService() {
             return new HelloService();
+        }
+    }
+
+    @Test
+    void test()throws JsonProcessingException{
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            mapper.writeValueAsBytes(null);
+        } catch (JsonProcessingException e) {
+            throw new IllegalArgumentException();
         }
     }
 }

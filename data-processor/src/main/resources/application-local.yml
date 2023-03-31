@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+tcp:
+  client:
+    port:
+      host: localhost
+      stockA:
+        index: 23000
+  server:
+    port:
+      host: localhost
+      stockA:
+        index: 23001

@@ -12,5 +12,5 @@ import org.springframework.context.annotation.Configuration;
 public class TcpServerPortProperties {
 
     private String host;
-    private ProductInfo stockA;
+    private ProductInfo stockA = new ProductInfo();
 }

@@ -8,9 +8,9 @@ tcp:
     port:
       host: localhost
       stockA:
-        index: 23000
+        index: 22903
   server:
     port:
       host: localhost
       stockA:
-        index: 23001
+        index: 22903

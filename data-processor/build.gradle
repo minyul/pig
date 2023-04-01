@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web' // 없어도 뜨지만 test api 만들려고
 
     implementation 'org.springframework.boot:spring-boot-starter-integration'
     implementation 'org.springframework.integration:spring-integration-ip'

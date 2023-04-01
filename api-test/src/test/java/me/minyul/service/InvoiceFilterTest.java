@@ -11,7 +11,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,5 +36,15 @@ class InvoiceFilterTest {
         List<Invoice> lowValueInvoices = invoiceFilter.lowValueInvoices();
 
         assertThat(lowValueInvoices).containsExactlyInAnyOrder(A);
+    }
+
+    @Test
+    void shouldException_GetInvoiceWhenIdIsNull() {
+        doThrow(new IllegalArgumentException("test message"))
+                .when(issuedInvoices).findById(null);
+
+        assertThatThrownBy(() -> invoiceFilter.getInvoice(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("test message");
     }
 }

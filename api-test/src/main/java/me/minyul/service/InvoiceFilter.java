@@ -21,4 +21,8 @@ public class InvoiceFilter {
                 .stream().filter(invoice -> invoice.getId() < 100)
                 .collect(Collectors.toList());
     }
+
+    public Invoice getInvoice(final Integer id) {
+        return issuedInvoices.findById(id);
+    }
 }

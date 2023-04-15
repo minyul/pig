@@ -28,6 +28,7 @@ dependencies {
     implementation 'com.google.guava:guava:30.1-jre'
     implementation group: 'org.apache.commons', name: 'commons-lang3'
     testImplementation group: 'com.h2database', name: 'h2', version: '2.1.214'
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
 }
 
 test {

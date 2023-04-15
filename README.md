@@ -14,7 +14,11 @@
   - Mock 에서 Exception 낼 때, 테스트
 - [스텁 x 모의 o](https://github.com/minyul/pig/commit/64fd0d1f40272ccdf7c2b61877dbb94ba67a8a42)
   - 스텁으로 인한 하드 코딩이 아닌 좀 더 구체적인 기댓값 원할 때
-
+- [Batch Step 테스트](https://github.com/minyul/pig/blob/main/batch-test/src/test/java/me/pig/batch/step/CoffeeStepTest.java)
+  - 스프링 배치 step 추가
+- [RestAssured 테스트](https://github.com/minyul/pig/blob/main/api-test/src/test/java/me/minyul/controller/HelloControllerRestAssuredTest.java)
+  - RestAssured를 이용하여 통합 테스트 
+  
 <h3>Spring Framework Test With Kotlin</h3>
 
 

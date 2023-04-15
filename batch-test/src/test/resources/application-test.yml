@@ -1,0 +1,8 @@
+spring:
+  batch:
+    job:
+      enabled: false
+      names: ${job.name:NONE}
+  config:
+    activate:
+      on-profile: test

@@ -15,27 +15,23 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
-@EnableBatchProcessing
 public class BatchConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Job BatchJob() {
-        return this.jobBuilderFactory.get("Job")
-                .start(step())
+    public Job testJob() {
+        return this.jobBuilderFactory.get("testJob")
+                .start(testStep())
                 .build();
     }
 
     @Bean
-    public Step step() {
-        return stepBuilderFactory.get("step")
+    public Step testStep() {
+        return stepBuilderFactory.get("testStep")
                 .tasklet((contribution, chunkContext) -> {
-                    log.info("contribution.getExitStatus(): [{}]", contribution.getExitStatus());
-                    log.info("contribution.getStepExecution().getStepName(): [{}]", contribution.getStepExecution().getStepName());
-                    log.info("contribution.getStepExecution().getJobExecution().getJobInstance().getJobName(): [{}]",
-                            contribution.getStepExecution().getJobExecution().getJobInstance().getJobName());
+                    log.info("Min Yul Step 1");
                     contribution.setExitStatus(ExitStatus.STOPPED);
                     return RepeatStatus.FINISHED;
                 }).build();
